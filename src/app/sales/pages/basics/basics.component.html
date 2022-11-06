@@ -1,0 +1,78 @@
+<div class="text-layout">
+  <h1>Basic Pipes</h1>
+  <p>
+    Included pipes on Angular - Usually on Common Module.
+  </p>
+</div>
+
+<div class="grid">
+  <div class="col-4">
+    <p-card header="uppercase"
+            [subheader]="nameLower | uppercase">
+            {{nameLower | uppercase}}
+    </p-card>
+  </div>
+
+  <div class="col-4">
+    <p-card header="lowercase"
+            [subheader]="nameUpper | lowercase">
+            {{nameLower | lowercase}}
+    </p-card>
+  </div>
+
+  <div class="col-4">
+    <p-card header="titlecase"
+            [subheader]="fullName | titlecase">
+            {{fullName | titlecase}}
+    </p-card>
+  </div>
+</div>
+
+<div class="text-layout">
+  <h1>Date | Pipe</h1>
+  <p>
+    Pipe for showing dates.
+  </p>
+</div>
+
+<div class="grid">
+  <div class="col-6">
+    <p-card>
+      <ul>
+        <li> Date </li>
+        <li> Date | date </li>
+        <li> Date | short </li>
+        <li> Date | long </li>
+        <li> Date | custom </li>
+      </ul>
+
+      <hr>
+
+      <ul>
+        <li> Date | GMT-5 </li>
+        <li> Date | es-AR </li>
+        <li> Date | fr-BE </li>
+      </ul>
+    </p-card>
+  </div>
+
+  <div class="col-6">
+    <p-card>
+      <ul>
+        <li> {{date}} </li>
+        <li> {{date | date}} </li>
+        <li> {{date | date:'short'}} </li>
+        <li> {{date | date:'long'}} </li>
+        <li> {{date | date:'ccc dd, MMMM yyyy'}} </li>
+      </ul>
+
+      <hr>
+
+      <ul>
+        <li> {{date | date:'long':'GMT-5'}} </li>
+        <li> {{date | date:'long':'':'es-AR'}} </li>
+        <li> {{date | date:'long':'':'fr-BE'}} </li>
+      </ul>
+    </p-card>
+  </div>
+</div>
