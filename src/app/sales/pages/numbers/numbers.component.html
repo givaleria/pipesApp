@@ -10,7 +10,21 @@
     <p-card header="Net Sales"
             subheader="current year">
             <i class="pi pi-dollar"></i>
-            {{netSales | number:'1.2-2'}}
+            {{(netSales + 1000000) | number:'1.2-2'}}
+    </p-card>
+  </div>
+
+  <div class="col-4">
+    <p-card header="Gross Sales"
+            subheader="current year">
+            {{(netSales + 2000000) | currency:'CAD':'symbol-narrow':'1.4-4' }}
+    </p-card>
+  </div>
+
+  <div class="col-4">
+    <p-card header="Percentage Gain"
+            subheader="current year">
+            {{ percentage | percent:'2.2-2' }}
     </p-card>
   </div>
 </div>
