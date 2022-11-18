@@ -1,1 +1,57 @@
-<p>order works!</p>
+<div class="text-layout">
+  <h1>Custom Pipes</h1>
+  <p>Pipes created by {{'us' | customUppercase:onUppercases}}</p>
+</div>
+
+<p-toolbar>
+  <div class="p-toolbar-group-left"></div>
+
+  <div class="p-toolbar-group-right">
+    <p-button label="Toggle uppercase" icon="pi pi-pencil" (click)="change()" class="mr-1" styleClass="p-button-warning"></p-button>
+    <p-button icon="pi pi-sort" class="mr-1" label="Name" (click)="changeOrder('name')"></p-button>
+    <p-button icon="pi pi-sort" styleClass="p-button-success" class="mr-1" label="Fly" (click)="changeOrder('fly')"></p-button>
+    <p-button icon="pi pi-sort" styleClass="p-button-danger" class="mr-1" label="Color" (click)="changeOrder('color')"></p-button>
+  </div>
+</p-toolbar>
+
+<div class="grid">
+  <div class="col mt-2">
+    <p-table [value]="heroes | order:orderBy">
+      <ng-template pTemplate="header">
+          <tr>
+              <th>Name</th>
+              <th>Fly</th>
+              <th>Color</th>
+          </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-heroe>
+          <tr>
+              <td>{{heroe.name}}</td>
+              <td>{{heroe.fly | fly | titlecase}}</td>
+              <td>{{heroe.color}}</td>
+          </tr>
+      </ng-template>
+  </p-table>
+  </div>
+</div>
+
+<div class="grid">
+  <div class="col mt-2">
+    <p-table [value]="heroes | slice:0">
+      <ng-template pTemplate="header">
+          <tr>
+            <th pSortableColumn="name" style="width:20%">Name<p-sortIcon field="name"></p-sortIcon></th>
+            <th pSortableColumn="fly" style="width:20%">Fly<p-sortIcon field="fly"></p-sortIcon></th>
+            <th pSortableColumn="color" style="width:20%">Color<p-sortIcon field="color"></p-sortIcon></th>
+          </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-heroe>
+          <tr>
+              <td>{{heroe.name}}</td>
+              <td>{{heroe.fly | fly | titlecase}}</td>
+              <td>{{heroe.color}}</td>
+          </tr>
+      </ng-template>
+  </p-table>
+  </div>
+</div>
